@@ -7,7 +7,6 @@ import java.awt.image.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-
 /**
  * RGBImagePanelは、与えられた画像のRGB色の反転を行い、その結果を表示するJPanelです。
  */
@@ -23,7 +22,7 @@ public class RGBImagePanel extends JPanel {
 	 * @param image 反転する元の画像
 	 */
 
-	 
+
 	public RGBImagePanel( Image image ){
 		this.image = image;
 		width = image.getWidth(this);  // 画像の幅を取得
