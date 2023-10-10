@@ -18,7 +18,6 @@ public class RGBImagePanel extends JPanel {
 	 * @param image 反転する元の画像
 	 */
 
-
 	public RGBImagePanel( Image image ){
 		this.image = image;
 		width = image.getWidth(this);  // 画像の幅を取得
@@ -29,13 +28,25 @@ public class RGBImagePanel extends JPanel {
 		bufImage = createBufferedImage(image);
 
 		// 画像の各ピクセルの色を反転
+		// for (int y = 0; y < bufImage.getHeight(); y++) {
+		// 	for (int x = 0; x < bufImage.getWidth(); x++) {
+		// 		int color = bufImage.getRGB(x, y);  // 現在のピクセルの色を取得
+		// 		int r = 255 - getRed(color);   // 赤成分の反転
+		// 		int g = 255 - getGreen(color); // 緑成分の反転
+		// 		int b = 255 - getBlue(color);  // 青成分の反転
+		// 		// 反転された色をBufferedImageに設定
+		// 		bufImage.setRGB(x, y, 255 << 24 | r << 16 | g << 8 | b);
+		// 	}
+		// }
+
+		// 画像の各ピクセルから緑成分のみを抽出
 		for (int y = 0; y < bufImage.getHeight(); y++) {
 			for (int x = 0; x < bufImage.getWidth(); x++) {
 				int color = bufImage.getRGB(x, y);  // 現在のピクセルの色を取得
-				int r = 255 - getRed(color);   // 赤成分の反転
-				int g = 255 - getGreen(color); // 緑成分の反転
-				int b = 255 - getBlue(color);  // 青成分の反転
-				// 反転された色をBufferedImageに設定
+				int r = 0;               // 赤成分は0に
+				int g = getGreen(color); // 緑成分をそのまま
+				int b = 0;               // 青成分は0に
+				// 抽出された色をBufferedImageに設定
 				bufImage.setRGB(x, y, 255 << 24 | r << 16 | g << 8 | b);
 			}
 		}
