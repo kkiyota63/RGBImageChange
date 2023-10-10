@@ -1,7 +1,3 @@
-/***
- *** �摜��񏈗��@��2��ۑ�
- ***/
-
 import java.awt.*;
 import java.awt.image.*;
 import javax.swing.*;
